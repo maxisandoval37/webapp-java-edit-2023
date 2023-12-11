@@ -7,6 +7,7 @@ import dev.maxisandoval37.webappjavaedit2023.repository.MascotaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MascotaService {
@@ -17,6 +18,10 @@ public class MascotaService {
     @Autowired
     private DuenioRepository duenioRepository;
 
+    public Mascota obtenerMascotaPorId(Long id){
+        return mascotaRepository.findById(id).orElseThrow(() -> new RuntimeException("No se encontro el mascota"));
+    }
+
     public List<Mascota> listarMascotas(){
         return mascotaRepository.findAll();
     }
@@ -25,5 +30,33 @@ public class MascotaService {
         Duenio duenio = duenioRepository.findById(idDuenio).orElseThrow(() -> new RuntimeException("No se encontro el duenio"));
         mascota.setDuenio(duenio);
         mascotaRepository.save(mascota);
+    }
+
+    public void eliminarMascota(Long id){
+        Optional<Mascota> mascotaOptional = mascotaRepository.findById(id);
+
+        if (mascotaOptional.isPresent()){
+            mascotaRepository.delete(mascotaOptional.get());
+        }
+        else {
+            throw new RuntimeException("Mascota no encontrada al momento de la eliminacion");
+        }
+    }
+
+    public void actualizarMascota(Long id, Mascota mascotaActualizada){
+        Optional<Mascota> mascotaOptional = mascotaRepository.findById(id);
+
+        if (mascotaOptional.isPresent()){
+            Mascota mascotaExistente = mascotaOptional.get();
+            mascotaExistente.setNombre(mascotaActualizada.getNombre());
+            mascotaExistente.setEdad(mascotaActualizada.getEdad());
+            mascotaExistente.setEspecie(mascotaActualizada.getEspecie());
+            mascotaExistente.setDuenio(mascotaActualizada.getDuenio());
+
+            mascotaRepository.save(mascotaExistente);
+        }
+        else {
+            throw new RuntimeException("Mascota no encontrada al momento de la actualizacion");
+        }
     }
 }

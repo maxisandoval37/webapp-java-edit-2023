@@ -12,6 +12,10 @@ public class DuenioService {
     @Autowired
     private DuenioRepository duenioRepository;
 
+    public Duenio obtenerDuenioPorId(Long id){
+        return duenioRepository.findById(id).orElseThrow(() -> new RuntimeException("No se encontro el duenio"));
+    }
+
     public List<Duenio> listarDuenios(){
         return duenioRepository.findAll();
     }

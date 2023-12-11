@@ -6,9 +6,7 @@ import dev.maxisandoval37.webappjavaedit2023.service.MascotaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
@@ -34,8 +32,29 @@ public class MascotaViewController {
     }
 
     @PostMapping("/guardarMascota")
-    public String guardarMascota(Mascota mascota, @RequestParam Long idDuenio){
+    public String guardarMascota(@ModelAttribute Mascota mascota, @RequestParam Long idDuenio){
         mascotaService.guardarMascota(mascota, idDuenio);
+        return "redirect:/mascotas";
+    }
+
+    @GetMapping("/eliminarMascota/{id}")
+    public String eliminarEliminarMascota(@PathVariable Long id){
+        mascotaService.eliminarMascota(id);
+        return "redirect:/mascotas";
+    }
+
+    @GetMapping("/actualizarMascota/{id}")
+    public String mostrarFormularioActualizarMascota(@PathVariable Long id, Model model){
+        Mascota mascota = mascotaService.obtenerMascotaPorId(id);
+        model.addAttribute("mascota", mascota);
+        model.addAttribute("duenios", duenioService.listarDuenios());
+        return "actualizarMascota";
+    }
+
+    @PostMapping("/actualizarMascota/{id}")
+    public String actualizarMascota(@PathVariable Long id, @ModelAttribute Mascota mascotaActualizada, @RequestParam Long idDuenio){
+        mascotaActualizada.setDuenio(duenioService.obtenerDuenioPorId(idDuenio));
+        mascotaService.actualizarMascota(id, mascotaActualizada);
         return "redirect:/mascotas";
     }
 }

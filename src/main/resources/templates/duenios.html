@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Dueños</title>
+</head>
+<body>
+
+<h2>Lista de Dueños</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Dirección</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="duenio : ${duenios}">
+        <td th:text="${duenio.id}"></td>
+        <td th:text="${duenio.nombre}"></td>
+        <td th:text="${duenio.direccion}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="@{/mascotas}">Ver Lista de Mascotas</a>
+
+</body>
+</html>

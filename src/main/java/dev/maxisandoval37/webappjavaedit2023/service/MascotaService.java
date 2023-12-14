@@ -5,6 +5,7 @@ import dev.maxisandoval37.webappjavaedit2023.model.Mascota;
 import dev.maxisandoval37.webappjavaedit2023.repository.DuenioRepository;
 import dev.maxisandoval37.webappjavaedit2023.repository.MascotaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +24,9 @@ public class MascotaService {
     }
 
     public List<Mascota> listarMascotas(){
-        return mascotaRepository.findAll();
+        //Sort sortBy = Sort.by(Sort.Direction.DESC, "nombre").ignoreCase();;
+
+        return mascotaRepository.findAllOrderByNombreIgnoreCaseDesc();
     }
 
     public void guardarMascota(Mascota mascota, Long idDuenio){

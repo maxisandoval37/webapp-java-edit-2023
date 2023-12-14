@@ -22,6 +22,7 @@
         <th>Especie</th>
         <th>Edad</th>
         <th>Dueño</th>
+        <th>Acciones</th>
     </tr>
     </thead>
     <tbody>
@@ -31,6 +32,11 @@
         <td th:text="${mascota.especie}"></td>
         <td th:text="${mascota.edad}"></td>
         <td th:text="${mascota.duenio.nombre}"></td>
+        <!--Botones de eliminar y actualizar mascota-->
+        <td>
+            <a th:href="@{/eliminarMascota/{id}(id=${mascota.id})}"><button type="button">Eliminar</button></a>
+            <a th:href="@{/actualizarMascota/{id}(id=${mascota.id})}"><button type="button">Actualizar</button></a>
+        </td>
     </tr>
     </tbody>
 </table>

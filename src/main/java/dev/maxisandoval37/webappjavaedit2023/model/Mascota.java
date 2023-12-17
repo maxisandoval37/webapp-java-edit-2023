@@ -1,13 +1,8 @@
 package dev.maxisandoval37.webappjavaedit2023.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.*;
+import lombok.*;
 
 @Entity
 @Data //toString, equals, hashcode, getters y setter
@@ -30,5 +25,6 @@ public class Mascota {
     private int edad;
 
     @ManyToOne
+    @NotNull(message = "El dueño no puede estar en blanco")
     private Duenio duenio;
 }

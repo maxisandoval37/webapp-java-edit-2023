@@ -1,10 +1,8 @@
 package dev.maxisandoval37.webappjavaedit2023.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.*;
+import lombok.*;
 
 @Entity
 @Data //toString, equals, hashcode, getters y setter

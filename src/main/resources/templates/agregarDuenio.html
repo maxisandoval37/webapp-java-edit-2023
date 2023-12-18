@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Dueño</title>
-</head>
-<body>
+<html lang="en">
+<head th:insert="~{fragments/header}"></head>
+<body class="container mt-5">
 
 <h2>Agregar Dueño</h2>
 
-<form th:action="@{/guardarDuenio}" method="post" th:object="${duenio}">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" th:field="*{nombre}" required/><br/>
+<form th:action="@{/guardarDuenio}" method="post" th:object="${duenio}" class="form">
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}" required>
+    </div>
 
-    <label for="direccion">Dirección:</label>
-    <input type="text" id="direccion" name="direccion" th:field="*{direccion}" required/><br/>
+    <div class="form-group">
+        <label for="direccion">Dirección:</label>
+        <input type="text" class="form-control" id="direccion" name="direccion" th:field="*{direccion}" required>
+    </div>
 
-    <button type="submit">Guardar Dueño</button>
+    <br>
+    <button type="submit" class="btn btn-primary">Guardar Dueño</button>
 </form>
 
 <hr>
 
-<a th:href="@{/duenios}">Ver Lista de Dueños</a>
+<a th:href="@{/duenios}" class="btn btn-secondary">Ver Lista de Dueños</a>
 
+<div th:replace="~{fragments/footer}"></div>
 </body>
 </html>

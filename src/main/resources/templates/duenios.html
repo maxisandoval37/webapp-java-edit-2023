@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Dueños</title>
-</head>
-<body>
+<html lang="en">
+<head th:insert="~{fragments/header}"></head>
+<body class="container mt-5">
 
 <h2>Lista de Dueños</h2>
 
-<table border="1">
-    <thead>
+<table class="table">
+    <thead class="thead-dark">
     <tr>
         <th>ID</th>
         <th>Nombre</th>
@@ -27,7 +22,9 @@
     </tbody>
 </table>
 
-<a th:href="@{/mascotas}">Ver Lista de Mascotas</a>
+<!-- Enlace para regresar a la lista de mascotas -->
+<a th:href="@{/mascotas}" class="btn btn-secondary">Ver Lista de Mascotas</a>
 
+<div th:replace="~{fragments/footer}"></div>
 </body>
 </html>

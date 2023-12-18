@@ -18,6 +18,11 @@ public class MascotaViewController {
     @Autowired
     private DuenioService duenioService;
 
+    @GetMapping("/")
+    public String redirectToMascotas() {
+        return "redirect:/mascotas";
+    }
+
     @GetMapping("/mascotas")
     public String listarMascotas(Model model){
         List<Mascota> mascotas = mascotaService.listarMascotas();

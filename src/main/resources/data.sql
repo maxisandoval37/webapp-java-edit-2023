@@ -1,3 +1,7 @@
+--Insertar datos de ejemplo en la tabla de usuarios
+INSERT INTO usuario (nombre, contrasena) VALUES ('maxi', '1234');
+INSERT INTO usuario (nombre, contrasena) VALUES ('user', '$2a$12$SlpV8ZblK/SXq1i5wHF67O5sZt9XduojXyBfQkry317PXAlAlhF8u');
+
 -- Insertar datos de ejemplo en la tabla de dueños
 INSERT INTO duenio (nombre, direccion) VALUES ('Maxi', 'Calle 123');
 INSERT INTO duenio (nombre, direccion) VALUES ('Natalia', 'Avenida 456');

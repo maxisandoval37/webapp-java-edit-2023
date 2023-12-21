@@ -14,7 +14,6 @@ public class SecurityConfig extends SecurityConfigurerAdapter<DefaultSecurityFil
     @Autowired
     private CustomUserDetailsService CustomUserDetailsService;
 
-
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 

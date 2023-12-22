@@ -20,7 +20,7 @@ public class MascotaService {
     private DuenioRepository duenioRepository;
 
     public Mascota obtenerMascotaPorId(Long id){
-        return mascotaRepository.findById(id).orElseThrow(() -> new RuntimeException("No se encontro el mascota"));
+        return mascotaRepository.findById(id).orElseThrow(() -> new RuntimeException("No se encontro la mascota"));
     }
 
     public List<Mascota> listarMascotas(){
@@ -29,10 +29,10 @@ public class MascotaService {
         return mascotaRepository.findAllOrderByNombreIgnoreCaseDesc();
     }
 
-    public void guardarMascota(Mascota mascota, Long idDuenio){
+    public Mascota guardarMascota(Mascota mascota, Long idDuenio){
         Duenio duenio = duenioRepository.findById(idDuenio).orElseThrow(() -> new RuntimeException("No se encontro el duenio"));
         mascota.setDuenio(duenio);
-        mascotaRepository.save(mascota);
+        return mascotaRepository.save(mascota);
     }
 
     public void eliminarMascota(Long id){

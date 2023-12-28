@@ -1,4 +1,4 @@
-# Pets Java Web App
+# Pets Java Web App :)
 
 ## Endpoint
 

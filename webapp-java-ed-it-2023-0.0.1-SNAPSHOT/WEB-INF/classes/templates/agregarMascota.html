@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:insert="~{fragments/header}"></head>
+<body class="container mt-5">
+
+<h2>Agregar Mascota</h2>
+
+<form th:action="@{/guardarMascota}" method="post" class="form">
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="especie">Especie:</label>
+        <input type="text" id="especie" name="especie" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" class="form-control" min="0" max="20" required>
+    </div>
+
+    <!-- Lista desplegable para seleccionar el dueño -->
+    <div class="form-group">
+        <label for="duenio">Dueño:</label>
+        <select id="duenio" name="idDuenio" class="form-control" required>
+            <option th:each="duenio : ${duenios}" th:value="${duenio.id}" th:text="${duenio.nombre}"></option>
+        </select>
+    </div>
+
+    <br>
+    <button type="submit" class="btn btn-primary">Guardar Mascota</button>
+</form>
+
+<hr>
+
+<!-- Enlace para regresar a la lista de mascotas -->
+<a th:href="@{/mascotas}" class="btn btn-secondary">Ver Lista de Mascotas</a>
+
+<div th:replace="~{fragments/footer}"></div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:insert="~{fragments/header}"></head>
+<body class="container mt-5">
+
+<h2 class="mb-4">Actualizar Mascota</h2>
+
+<form th:action="@{/actualizarMascota/{id}(id=${mascota.id})}" method="post">
+    <input type="hidden" name="_method" value="put">
+
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" th:value="${mascota.nombre}" required>
+    </div>
+
+    <div class="form-group">
+        <label for="especie">Especie:</label>
+        <input type="text" class="form-control" id="especie" name="especie" th:value="${mascota.especie}" required>
+    </div>
+
+    <div class="form-group">
+        <label for="edad">Edad:</label>
+        <input type="number" class="form-control" id="edad" name="edad" th:value="${mascota.edad}" min="0" max="20" required>
+    </div>
+
+    <div class="form-group">
+        <label for="idDuenio">Dueño:</label>
+        <select class="form-control" id="idDuenio" name="idDuenio">
+            <option th:each="duenio : ${duenios}" th:value="${duenio.id}" th:text="${duenio.nombre}" th:selected="${duenio.id eq mascota.duenio.id}"></option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Actualizar Mascota</button>
+</form>
+
+<div th:replace="~{fragments/footer}"></div>
+</body>
+</html>

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: dev.maxisandoval37.webappjavaedit2023.MascotaServiceTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.484 s -- in dev.maxisandoval37.webappjavaedit2023.MascotaServiceTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.781 s -- in dev.maxisandoval37.webappjavaedit2023.MascotaServiceTest

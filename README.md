@@ -14,7 +14,7 @@ Este proyecto es una aplicación web Java desarrollada con el framework Spring B
 - **Spring Boot Starter Test / Junit**
 - **H2 Database:** DB en memoria utilizada para desarrollo y pruebas.
 - **SQL**
-- **Spring Boot Starter Thymeleaf:** Integración con el motor de plantillas y utilización de **fragmentos**.
+- **Spring Boot Starter Thymeleaf:** Integración con el motor de plantillas y utilización de **fragmentos**. Acompañado de **HTML5**, **CSS** y **JS**.
 - **Bootstrap 5**
 - **Spring Boot Starter Validation**
 - **Hibernate Validator**

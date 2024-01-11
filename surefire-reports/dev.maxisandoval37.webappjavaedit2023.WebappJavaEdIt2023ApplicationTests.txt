@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: dev.maxisandoval37.webappjavaedit2023.WebappJavaEdIt2023ApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in dev.maxisandoval37.webappjavaedit2023.WebappJavaEdIt2023ApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in dev.maxisandoval37.webappjavaedit2023.WebappJavaEdIt2023ApplicationTests
